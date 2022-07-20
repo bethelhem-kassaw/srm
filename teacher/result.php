@@ -120,18 +120,18 @@ if(!isset($_SESSION['auth_user'])) header('location:../index.php');
                            </li> -->
                         <!-- </ul>
                      </li> -->
-                     <!-- <li>
-                        <a href="#subject" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-book"></i> <span>SUBJECT</span></a>
-                        <ul class="collapse list-unstyled" id="subject">
-                           <li>
-                              <a href="addsubject.php">> <span>ADD subject</span></a>
-                           </li>
-                           <li>
-                              <a href="managesubject.php">> <span>Manage subject</span></a>
-                           </li>
-                          
-                        </ul>
-                     </li> -->
+                     <li>
+                     <a href="#subject" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-book"></i> <span>Student</span></a>
+                     <ul class="collapse list-unstyled" id="subject">
+                        <li>
+                           <a href="seestudent.php">> <span>see student</span></a>
+                        </li>
+                        <li>
+                           <a href="manageresult.php">> <span>Manage Result</span></a>
+                        </li>
+
+                     </ul>
+                  </li>
                      <li><a href="result.php"><i class="fa fa-map purple_color2"></i> <span>Result</span></a></li>
                      <li><a href="../changepassword.php"><i class="fa fa-key green_color"></i> <span>change Password</span></a></li>
                      <li><a href="../logout.php"><i class="fa fa-sign-out"></i> <span>logout</span></a></li>
