@@ -282,6 +282,7 @@ if(isset($_GET['rid'])){
                                        <th>Assignment</th>
                                        <th>Final Exam</th>
                                        <th>total</th>
+                                       <th>Grade</th>
                                        <th>Action</th>
                                     </tr>
                                  </thead>
@@ -308,6 +309,7 @@ if(isset($_GET['rid'])){
                                           <td><?php echo $data['assignment5'] ?></td>
                                           <td><?php echo $data['assignment6'] ?></td>
                                           <td><?php echo $data['total'] ?></td>
+                                          <td><?php echo $data['grade'] ?></td>
                                           <td> <a href="../teacher/editresult.php?rid=<?= $data['rid'] ?>"><i class="fa fa-edit" title="Edit Record"></i> </a></td>
                                          <td> <a href="manageresult.php?rid=<?= $data['rid'] ?>"><i class="fa fa-trash" title="delete Record"></i> </a></td>
                                        </tr>

@@ -173,10 +173,13 @@ include('../include/topbar.php');
 
 
                                                 <div class="form-group">
-                                                    <label for="default" class="col-sm-2 control-label">Class number</label>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" name="classnumber" class="form-control" id="classnumber" required="required" autocomplete="on">
-                                                    </div>
+                                                    <label for="default" class="col-sm-2 control-label">Program</label>
+                                                    <select name="classnumber"class="form-select" aria-label="Default select example">
+                                                        <option selected>select Program</option>
+                                                        <option value="Regular">Regular</option>
+                                                        <option value="Extension">Extension</option>
+                                                       
+                                                    </select>
                                                 </div>
 
 

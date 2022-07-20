@@ -180,22 +180,7 @@ if(!isset($_SESSION['auth_user'])) header('location:../index.php');
 
 
 
-<?php
 
-$query= "SELECT * FROM `deadline` ";
-$result=mysqli_query($conn,$query);
-$data=mysqli_fetch_array($result);
-
-$sem=$data['semister'];
-$sdate=$data['startdate'];
-$edate =$data['enddate'];
-$today = date("y-m-d");
-
-// echo $today;
-// echo $data['startdate'];
-
-
-?>
 
 
 <?php
@@ -215,12 +200,40 @@ $today = date("y-m-d");
     $ass5=$_POST['ass5'];
     $ass6=$_POST['ass6'];
     $total=$ass1+$ass2+$ass3+$ass4+$ass5+$ass6;
+    $grade=0;
+    if($total>=90)
+    {
+      $grade='A+';
+    }
+    elseif($total<90&&$total>=85){
+$grade='A';
+   }elseif($total<85&&$total>=80){
+      $grade = 'A-';
+   }elseif($total<80&&$total>=75){
+      $grade='B+';
+   }elseif($total<75&&$total>=70){
+      $grade='B';
+   }elseif($total<70&&$total>=65){
+      $grade='B-';
+   }elseif($total<65&&$total>=60){
+      $grade='C+';
+   }elseif($total<60&&$total>=50){
+      $grade='C';
+   }elseif($total<50&&$total>=45){
+      $grade='C-';
+   }elseif($total<45&&$total>=40){
+      $grade='D';
+   }elseif($total<40&&$total>=35){
+      $grade='FX';
+   }else{
+      $grade='F';
+   }
    //  echo $ass6;
    //  echo $total;
    //  $date_added=date("Y-m-d ");
     
     
-    $query = $query = "INSERT INTO result(`teacherid`,`studentid`,`semisterid`,`classid`,`subjectid`,`assignment1`,`assignment2`,`assignment3`,`assignment4`,`assignment5`,`assignment6`,`total`,`date_added`) VALUE ('$tid','$sid','$semid','$class','$subid','$ass1','$ass2','$ass3','$ass4','$ass5','$ass6','$total',NOW())";
+    $query = $query = "INSERT INTO result(`teacherid`,`studentid`,`semisterid`,`classid`,`subjectid`,`assignment1`,`assignment2`,`assignment3`,`assignment4`,`assignment5`,`assignment6`,`total`,`grade`,`date_added`) VALUE ('$tid','$sid','$semid','$class','$subid','$ass1','$ass2','$ass3','$ass4','$ass5','$ass6','$total','$grade',NOW())";
     $query_run=mysqli_query($conn,$query);
    if ($query_run){
     // die('success');
@@ -274,8 +287,24 @@ $today = date("y-m-d");
 
 
 <?php
+// 
 
-if($today>=$sdate&&$today<=$edate){
+$query= "SELECT * FROM `deadline` ";
+$result=mysqli_query($conn,$query);
+$data=mysqli_fetch_array($result);
+
+$sem=$data['semister'];
+$sdate=$data['startdate'];
+$edate =$data['enddate'];
+$today = date('Y-m-d');
+// $today = new DateTime();
+
+// echo $today;
+// echo $data['startdate'];
+
+
+//
+if($today>$sdate && $today<$edate){
 
 
 

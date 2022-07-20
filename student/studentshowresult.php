@@ -218,6 +218,7 @@ INNER JOIN class on result.classid=class.id INNER JOIN semister on result.semist
                                              <th>Assignment</th>
                                              <th>Final Exam</th>
                                              <th>total</th>
+                                             <th>Grade</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -243,6 +244,7 @@ INNER JOIN class on result.classid=class.id INNER JOIN semister on result.semist
                                              <td><?php echo $data['assignment5']?></td>
                                              <td><?php echo $data['assignment6']?></td>
                                              <td><?php echo $data['total']?></td>
+                                             <td><?php echo $data['grade']?></td>
                                           </tr>
                                           
                                           <?php

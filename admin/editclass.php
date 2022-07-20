@@ -57,26 +57,25 @@ include('../include/config.php');
             <!-- Sidebar  -->
             <?php
 
-include('../sidbar.php');
+            include('../sidbar.php');
 
 
 
 
-?>
+            ?>
             <!-- end sidebar -->
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
                 <?php
 
-include('../include/topbar.php');
+                include('../include/topbar.php');
 
 
 
 
-?>
+                ?>
                 <!-- end topbar -->
-            
 
 
 
@@ -90,43 +89,43 @@ include('../include/topbar.php');
 
 
 
-<?php
+
+                <?php
 
 
-    if(isset($_POST['update'])){
-        $user_id= $_GET['id'];
-    $classname=$_POST['classname'];
-    $classnumber=$_POST['classnumber'];
-    $section=$_POST['section'];
-    // $gender=$_POST['gender'];
-    // $class=$_POST['class'];
-    // $date_added=date("Y-m-d");
-    
-    
-    $query= "UPDATE class SET classname='$classname', classnumber='$classnumber', section='$section' WHERE id='$user_id'";
-    $query_run=mysqli_query($conn,$query);
-   if ($query_run){
-    // die('success');
-    ?>
-    <div class="alert alert-success alert-dismissible">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>successfully updated</strong> 
-  </div>
-    <?php
+                if (isset($_POST['update'])) {
+                    $user_id = $_GET['id'];
+                    $classname = $_POST['classname'];
+                    $classnumber = $_POST['classnumber'];
+                    $section = $_POST['section'];
+                    // $gender=$_POST['gender'];
+                    // $class=$_POST['class'];
+                    // $date_added=date("Y-m-d");
 
-   }else{
-    die('not success');
-    ?>
-    <div class="alert alert-danger alert-dismissible">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Sorry not successfully updated</strong> 
-  </div>
-    <?php
-   }
-    
-}
 
-?>
+                    $query = "UPDATE class SET classname='$classname', classnumber='$classnumber', section='$section' WHERE id='$user_id'";
+                    $query_run = mysqli_query($conn, $query);
+                    if ($query_run) {
+                        // die('success');
+                ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>successfully updated</strong>
+                        </div>
+                    <?php
+
+                    } else {
+                        die('not success');
+                    ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Sorry not successfully updated</strong>
+                        </div>
+                <?php
+                    }
+                }
+
+                ?>
 
 
 
@@ -138,14 +137,14 @@ include('../include/topbar.php');
 
 
                 <div class="midde_cont">
-                  <div class="container-fluid">
-                     <div class="row column_title">
-                        <div class="col-md-12">
-                           <div class="page_title">
-                              <h2>ADD Class</h2>
-                           </div>
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>ADD Class</h2>
+                                </div>
+                            </div>
                         </div>
-                     </div>
                         <!-- /.row -->
                         <div class="row">
                             <div class="col-md-12">
@@ -153,51 +152,53 @@ include('../include/topbar.php');
                                     <div class="heading1 margin_0">
                                         <h2>Fill the form</h2>
                                     </div>
-                                 </div>
+                                </div>
 
 
 
-                                 <?php
-if(isset($_GET['id']))
-{
-    $user_id= $_GET['id'];
-    $users = "SELECT * FROM class WHERE id='$user_id'";
-    $users_run= mysqli_query($conn,$users);
-    if(mysqli_num_rows($users_run)>0){
-        foreach($users_run as $user){
-            ?>
+                                <?php
+                                if (isset($_GET['id'])) {
+                                    $user_id = $_GET['id'];
+                                    $users = "SELECT * FROM class WHERE id='$user_id'";
+                                    $users_run = mysqli_query($conn, $users);
+                                    if (mysqli_num_rows($users_run) > 0) {
+                                        foreach ($users_run as $user) {
+                                ?>
 
 
 
 
 
-                                <form class="form-horizontal" method="post">
-                                <input type="hidden" name = "user_id" value="<?=$user['id'];?>"/>
-                                             <div class="form-group">
+                                            <form class="form-horizontal" method="post">
+                                                <input type="hidden" name="user_id" value="<?= $user['id']; ?>" />
+                                                <div class="form-group">
                                                     <label for="default" class="col-sm-2 control-label">Class Name</label>
                                                     <div class="col-sm-6">
-                                                        <input type="text"value="<?=$user['classname'];?>" name="classname" class="form-control" id="classname" required="required" autocomplete="on">
+                                                        <input type="text" value="<?= $user['classname']; ?>" name="classname" class="form-control" id="classname" required="required" autocomplete="on">
                                                     </div>
                                                 </div>
 
 
 
                                                 <div class="form-group">
-                                                    <label for="default" class="col-sm-2 control-label">Class number</label>
-                                                    <div class="col-sm-6">
-                                                        <input type="text"value="<?=$user['classnumber'];?>" name="classnumber" class="form-control" id="classnumber" required="required" autocomplete="on">
-                                                    </div>
+                                                <label for="default" class="col-sm-2 control-label">Program</label>
+                                                    <select name="classnumber"class="form-select" aria-label="Default select example">
+                                                        <option selected>select Program</option>
+                                                        <option value="Regular">Regular</option>
+                                                        <option value="Extension">Extension</option>
+                                                       
+                                                    </select>
                                                 </div>
 
 
                                                 <div class="form-group">
                                                     <label for="default" class="col-sm-2 control-label">Section</label>
                                                     <div class="col-sm-6">
-                                                        <input type="text" value="<?=$user['section'];?>"name="section" class="form-control" id="section"  required="required" autocomplete="on">
+                                                        <input type="text" value="<?= $user['section']; ?>" name="section" class="form-control" id="section" required="required" autocomplete="on">
                                                     </div>
                                                 </div>
-                                                
-                                                
+
+
 
                                                 <!-- <div class="form-group">
                                                     <label for="default" class="col-sm-2 control-label">Email id</label>
@@ -222,7 +223,7 @@ if(isset($_GET['id']))
 
 
 
-                                                
+
 
                                                 <!-- <div class="form-group">
                                                     <label for="date" class="col-sm-2 control-label">DOB</label>
@@ -238,30 +239,30 @@ if(isset($_GET['id']))
                                                     </div>
                                                 </div>
 
-                                </form>
+                                            </form>
 
 
 
 
+                                        <?php
+                                        }
+                                    } else {
+                                        ?>
+                                        <h4>No Record found</h4>
                                 <?php
-        }
-    }else{
-        ?>
-        <h4>No Record found</h4>
-        <?php
-    }
-}
+                                    }
+                                }
 
 
-?>
-                                
+                                ?>
+
                             </div>
 
                         </div>
                         <!-- /.row -->
                     </div>
                 </div>
-                    
+
             </div>
             <!-- /.content-wrapper -->
         </div>
@@ -282,31 +283,31 @@ if(isset($_GET['id']))
 
 
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- wow animation -->
-        <script src="js/animate.js"></script>
-        <!-- select country -->
-        <script src="js/bootstrap-select.js"></script>
-        <!-- owl carousel -->
-        <script src="js/owl.carousel.js"></script>
-        <!-- chart js -->
-        <script src="js/Chart.min.js"></script>
-        <script src="js/Chart.bundle.min.js"></script>
-        <script src="js/utils.js"></script>
-        <script src="js/analyser.js"></script>
-        <!-- nice scrollbar -->
-        <script src="js/perfect-scrollbar.min.js"></script>
-        <script>
-            var ps = new PerfectScrollbar('#sidebar');
-        </script>
-         <!-- fancy box js -->
-      <script src="js/jquery-3.3.1.min.js"></script>
-      <script src="js/jquery.fancybox.min.js"></script>
-        <!-- custom js -->
-        <script src="js/custom.js"></script>
-        <script src="js/chart_custom_style1.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow animation -->
+    <script src="js/animate.js"></script>
+    <!-- select country -->
+    <script src="js/bootstrap-select.js"></script>
+    <!-- owl carousel -->
+    <script src="js/owl.carousel.js"></script>
+    <!-- chart js -->
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/analyser.js"></script>
+    <!-- nice scrollbar -->
+    <script src="js/perfect-scrollbar.min.js"></script>
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- fancy box js -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <script src="js/chart_custom_style1.js"></script>
 </body>
 
 </html>

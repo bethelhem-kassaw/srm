@@ -103,7 +103,7 @@ include('../include/topbar.php');
     // $date_added=date("Y-m-d");
     
     
-    $query = "INSERT INTO adminteacher(`username`,`password`,`currentdate`,`role`,`course`,`gender`,`email`) VALUE ('$username','$encrypted',NOW(),'teacher','$course','$gender','$email')";
+    $query = "INSERT INTO adminteacher(`username`,`password`,`currentdate`,`role`,`course`,`gender`,`email`) VALUE ('$username','$encrypted',NOW(),'admin','$course','$gender','$email')";
     $query_run=mysqli_query($conn,$query);
    if ($query_run){
     // die('success');

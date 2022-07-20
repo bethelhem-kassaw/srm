@@ -111,6 +111,7 @@ include('../include/config.php'); ?>
                                     <label for="rollid">Student Last Name</label>
                                     <input type="text" name="slname" class="form-control" id="rollid" placeholder="Student Last Name" autocomplete="off" name="rollid">
                                 </div>
+                                
 
 
                                 <div class="form-group mt-20">

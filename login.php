@@ -8,8 +8,8 @@ if(isset($_POST['login'])){
     $username=mysqli_real_escape_string($conn,$_POST['username']);
     $password=mysqli_real_escape_string($conn,$_POST['password']);
     
-    // $pwd=md5($password);
-    $login_query="SELECT * FROM adminteacher WHERE username='$username' AND password='$password'";
+    $pwd=md5($password);
+    $login_query="SELECT * FROM adminteacher WHERE username='$username' AND password='$pwd'";
     $login_query_run=mysqli_query($conn,$login_query);
     
     
