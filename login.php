@@ -7,6 +7,7 @@
 if(isset($_POST['login'])){
     $username=mysqli_real_escape_string($conn,$_POST['username']);
     $password=mysqli_real_escape_string($conn,$_POST['password']);
+    
     // $pwd=md5($password);
     $login_query="SELECT * FROM adminteacher WHERE username='$username' AND password='$password'";
     $login_query_run=mysqli_query($conn,$login_query);
@@ -239,7 +240,7 @@ if(isset($_POST['login'])){
                                             <div class="panel">
                                                 <div class="panel-heading">
                                                     <div class="panel-title text-center">
-                                                        <h4>Admin Login</h4>
+                                                        <h4>Admin/Teacher Login</h4>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body p-20">
@@ -262,6 +263,19 @@ if(isset($_POST['login'])){
                                                     			<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
                                                     		</div>
                                                     	</div>
+
+                                                        <!-- <div class="form-group">
+                                                    <label for="default" class="col-sm-2 control-label">Role</label>
+                                                    <div class="col-sm-6">
+                                                        <select name="role" class="form-control" id="default" required="required">
+                                                            <option value="">Select role</option>
+
+                                                            <option value="admin">admin</option>
+                                                            <option value="teacher">teacher</option>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                </div> -->
                                                        
                                                         <div class="form-group mt-20">
                                                     		<div class="col-sm-offset-2 col-sm-10">

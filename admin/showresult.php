@@ -187,7 +187,7 @@ INNER JOIN class on result.classid=class.id INNER JOIN semister on result.semist
                                                       <td><?php echo $data['assignment5'] ?></td>
                                                       <td><?php echo $data['assignment6'] ?></td>
                                                       <td><?php echo $data['total'] ?></td>
-                                                      <td> <a href="../teacher/editresult.php?rid=<?= $data['rid'] ?>"><i class="fa fa-edit" title="Edit Record"></i> </a></td>
+                                                      <td> <a href="editresult.php?rid=<?= $data['rid'] ?>"><i class="fa fa-edit" title="Edit Record"></i> </a></td>
                                                    </tr>
 
                                                 <?php
