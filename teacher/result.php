@@ -275,7 +275,7 @@ $today = date("y-m-d");
 
 <?php
 
-if($sdate==$today||$sdate<=$edate){
+if($today>=$sdate&&$today<=$edate){
 
 
 
